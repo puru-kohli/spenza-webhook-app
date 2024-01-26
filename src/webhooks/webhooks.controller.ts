@@ -2,6 +2,7 @@ import { Body, Controller, Get, Post, Request, Headers } from '@nestjs/common';
 import { WebhooksService } from './webhooks.service';
 import { WebhookSubscribeDto } from './dto/webhookSubscribe.dto';
 import { WebhookUnsubscribeDto } from './dto/webhookUnsubscribe.dto';
+import { Public } from 'src/auth/decorators/public.decorator';
 
 @Controller('webhooks')
 export class WebhooksController {
@@ -34,6 +35,7 @@ export class WebhooksController {
     );
   }
 
+  @Public()
   @Post('listener')
   listener(@Request() req, @Body() content: any) {
     const sourceUrl = `${req.protocol}://${req.get('Host')}${req.originalUrl}`;
