@@ -32,3 +32,9 @@ Webhook Unsubscription
 Webbhook Listener
 
 List all subscribed webhooks with their content
+
+`WORKING`
+
+    User details and subscribed webhook details are stored in Mongodb
+
+    Socket.js used for real-time update of updating client with latest webhook details
